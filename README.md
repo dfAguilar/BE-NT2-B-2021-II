@@ -13,3 +13,5 @@ Para iniciar el proyecto vamos crearnos una cuenta en github. A continuacion la 
 
 - Daniel Guzman, dguzman-ort
 -Walter Carbone, WalterCarbone
+- Federico Padula, fedepadula
+- Agustin Venturelli, AgusVenturelli
