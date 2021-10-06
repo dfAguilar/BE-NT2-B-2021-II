@@ -1,21 +1,14 @@
 import './App.css';
 import { useState } from 'react';
 
+import Button from "./components/Button";
+import Counters from "./components/Counters";
+import Todo from "./components/Todo";
+
 function App() {
 
 
-  const [todos, updateTodos] = useState([
-    {
-      id: 1,
-      title: 'tarea 3',
-      checked: false
-    },
-    {
-      id: 2,
-      title: 'tarea 2',
-      checked: false
-    }
-  ])
+  const [todos, updateTodos] = useState([])
 
 
   const addTodo = () => {
@@ -36,29 +29,31 @@ function App() {
       
   }
 
+
+  const clickCheckbox = (todo) => {
+
+    console.log('Este es el objeto que voy a tratar', todo)
+    todo = {...todo, checked: !todo.checked}
+    console.log('todo cambiado: ', todo)
+    const newArray = todos.map(item => (item.id === todo.id) ? todo: item)
+    updateTodos(newArray)
+  }
+
+  const callbackBorrar = (todo) => {
+    const newArray = todos.filter(item => item.id !== todo.id)
+    updateTodos(newArray)
+  }
+
   return (
     <div className="container center">
       <h1 className="center title">TODO App</h1>
-      <div className="flow-right controls">
-        <span>Item count: <span id="item-count">0</span></span>
-        <span>Unchecked count: <span id="unchecked-count">0</span></span>
-      </div>
-      <button className="button center" onClick={addTodo}>Agregar Tarea</button>
+      <Counters todos={todos} activo={true} />
+      {/* <button className="button center" onClick={addTodo}>Agregar Tarea</button> */}
+      <Button className={"button center"} onClick={addTodo} title={'Agregar Tarea'} hola={true} />
       <ul id="todo-list" className="todo-list">
-
         {
-          todos.map(item => {
-            return (
-              <li key={item.id} className="todo-container">
-                <input type="checkbox" checked={item.checked} className="todo-checkbox" />
-                <span className="todo-text">{item.title}</span>
-                {/* <button className="todo-delete"> X </button> */}
-              </li>
-            )
-          })
+          todos.map(item => (<Todo key={item.id} todo={item} callbackBorrar={callbackBorrar} clickCheckbox={clickCheckbox} />))
         }
-
-
       </ul>
     </div>
   );
