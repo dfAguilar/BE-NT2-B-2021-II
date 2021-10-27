@@ -6,7 +6,7 @@
  * }
  */
 
- const CANTIDAD_DATOS = 10
+ const CANTIDAD_DATOS = 5
 
  const nombres =['Dario', 'Emiliano', 'Noelia', 'Gustavo', 'Pedro']
  const apellidos = ['Garcia', 'Figuera', 'Loughry', 'Maenhout', 'Nielsen']

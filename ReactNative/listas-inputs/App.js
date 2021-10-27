@@ -6,7 +6,7 @@ import Constants from "expo-constants";
 
 import Contacts from "./utils/contacts";
 
-import { ScrollViewContacts, FlatListContacts } from "./components/ContactComponents";
+import { ScrollViewContacts, FlatListContacts, ContactForm } from "./components/ContactComponents";
 
 export default function App() {
 
@@ -15,15 +15,28 @@ export default function App() {
   const [showForm, setShowForm] = useState(false)
 
 
+  const guardarContacto = (contact) => {
+    console.log('Agregar contacto a la BD: ', contact)
+
+    
+    setContacts([
+      ...contacts,
+      {
+        nombre: contact.nombre, telefono: contact.telefono, id: contacts.length
+      }
+    ])
+
+    setShowForm(false)
+
+
+  }
 
   return (
     <View style={styles.container}>
 
       {
         (showForm) ?
-          <View>
-            <Text>Mostrar formulario</Text>
-          </View>
+          <ContactForm guardarContacto={guardarContacto} />
           :
           <View>
             <TouchableOpacity
