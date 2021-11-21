@@ -13,3 +13,7 @@ Para iniciar el proyecto vamos crearnos una cuenta en github. A continuacion la 
 
 - Daniel Guzman, dguzman-ort
 - Bruno Rilla, brunorilla
+- Oriana Beatriz Ledesma , orianaledesma
+- Federico Padula, fedepadula
+- Agustin Venturelli, AgusVenturelli
+- Beatriz Mas García, beitrix
